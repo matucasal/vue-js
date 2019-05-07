@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clase 1</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+    <div id="app">
+        <!-- Clase container es de bootsrap-->
+        <div class="container">
+            <!-- jumbotron otra clase de boostrap - mt-3 margin top 3 -->
+            <div class="jumbotron mt-3">
+                <h1>{{ mensaje }} </h1>
+                
+                <h4>Interpolacion - v-html - v-text </h4>
+                {{ mensajeHTML }}
+                <!--Voy a poner una directiva para que se vea bien el html-->
+                <!-- v-html: Muestra como html -->
+                <div v-html="mensajeHTML"></div>
+                <!-- v-text: Muestra igual que interpolacion-->
+                <div v-text="mensajeHTML"></div>
+
+                <h4>v-if </h4>
+                <!-- v-if: ocular o mostrar html-->
+                <div v-if="mostrar">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos vitae nam dolores corrupti quasi cumque dolor assumenda eaque fugit, unde rerum error exercitationem facilis earum reiciendis quo voluptate temporibus deserunt!</div>
+                
+                <h4>v-on:click </h4>
+                <!-- v-on:click: le avisa al js que se toco un click-->
+                <button class="btn btn-success" v-on:click="mostrar=!mostrar"> Mostrar / Ocultar</button>
+                <!-- Ahora le agrego una interpolacion al bootn para mostar bien el texto-->
+                <button class="btn btn-success" v-on:click="mostrar=!mostrar"> {{ mostrar? 'Ocultar':'Mostrar'}} </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Libreria vue dev-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--Aca va a ir mi codigo-->
+    <script src="js/main.js"></script>
+</body>
+</html>
