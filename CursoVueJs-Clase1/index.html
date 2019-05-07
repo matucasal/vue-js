@@ -1,3 +1,6 @@
+<!--Data piola para atajos del visual code
+https://docs.emmet.io/cheat-sheet/
+-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,13 +29,59 @@
 
                 <h4>v-if </h4>
                 <!-- v-if: ocular o mostrar html-->
-                <div v-if="mostrar">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos vitae nam dolores corrupti quasi cumque dolor assumenda eaque fugit, unde rerum error exercitationem facilis earum reiciendis quo voluptate temporibus deserunt!</div>
+                <div v-if="mostrar" class="alert alert-warning">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos vitae nam dolores corrupti quasi cumque dolor assumenda eaque fugit, unde rerum error exercitationem facilis earum reiciendis quo voluptate temporibus deserunt!
+                    <br>
+                    <h4>v-for </h4>
+                    <ul>
+                        <!--v-for: directtiva para iterar-->
+                        <li v-for="(usuario,index) in usuarios">
+                                {{ index }}: {{ usuario.nombre }}
+                        </li>
+                    </ul>
+                    <!-- Aca valido en si hay usuarios en la lista-->
+                    <div v-if="usuarios.length">
+                        <table class="table">
+                            <tr>
+                                <th>nombre</th>
+                                <th>apellido</th>
+                                <th>edad</th>
+                                <th>curso</th>
+                                <th>foto</th>
+                            </tr>
+                            <tr v-for="usuario in usuarios">
+                                <th>{{usuario.nombre}}</th>
+                                <th>{{usuario.apellido}}</th>
+                                <th>{{usuario.edad}}</th>
+                                <th>{{usuario.curso}}</th>
+                                <!--v-bind: Para binder algo del vue al html-->
+                                <!--: Para binder algo del vue al html-->
+                                <th><img v-bind:src="usuario.foto" alt="alt" height="50"></th>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- contendor media de boostrap -->
+                    <div class="media" v-for="(usuario,index) in usuarios">
+                        <img :src="usuario.foto" height="150" alt="">
+                        <div class="media-body">
+                            <p><b>{{usuario.nombre}} {{usuario.apellido}}</b></p>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam amet repellendus a, officiis, omnis unde molestias, alias laudantium cum quos itaque adipisci. Repudiandae doloribus necessitatibus inventore autem consequatur dicta ratione.</p>
+                            <!-- v-model: Valor del checkboks -> double data binding-->
+                            <input type="checkbox" v-model="usuario.curso">
+                            <button class="btn btn-danger mx-4" @click="borrarUsuario(index)">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
                 
-                <h4>v-on:click </h4>
+
+
+                <h4>v-on:click - @click </h4>
                 <!-- v-on:click: le avisa al js que se toco un click-->
                 <button class="btn btn-success" v-on:click="mostrar=!mostrar"> Mostrar / Ocultar</button>
                 <!-- Ahora le agrego una interpolacion al bootn para mostar bien el texto-->
                 <button class="btn btn-success" v-on:click="mostrar=!mostrar"> {{ mostrar? 'Ocultar':'Mostrar'}} </button>
+                <!-- @click es igual que v-on:click-->
+                <button class="btn btn-success" @click="cambiarVistaTexto1"> {{ mostrar? 'Ocultar @ (metodo)':'Mostrar @ (metodo)'}} </button>
             </div>
         </div>
     </div>
