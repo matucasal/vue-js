@@ -115,6 +115,15 @@ https://docs.emmet.io/cheat-sheet/
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore itaque modi id voluptas adipisci quis incidunt in deleniti suscipit fugiat, eum eligendi nobis dolorem nulla obcaecati et necessitatibus provident accusamus?
                     </p>
                 
+                <!-- bindeo de estilos-->
+                <h4>:style</h4>
+                <button :class="['btn','btn-success']" @click="estado3=!estado3">Cambiar estilo</button>
+                {{estado3}}
+                
+                <p :style="{'backgroundColor' : estado3? 'red': 'green', 'color': 'white'}">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi dolorum amet quasi sequi repudiandae voluptatem ex voluptates neque? Est fuga voluptas eaque ex nobis reiciendis nisi porro placeat animi nam?
+                </p>
+
             </div>
         </div>
     </div>

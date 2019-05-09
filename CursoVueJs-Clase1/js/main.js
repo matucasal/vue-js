@@ -41,7 +41,8 @@ const app = new Vue(
             valor: 123,
             estiloFondo: 'bg-danger',
             estado1: false,
-            estado2: false
+            estado2: false,
+            estado3: false
         },
         methods: {
             //Diferentes formas de llamar metodos
