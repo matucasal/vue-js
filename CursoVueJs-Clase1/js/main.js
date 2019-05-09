@@ -1,3 +1,18 @@
+Vue.component('contador', {
+    data(){
+        return {
+            contador : 0
+        }
+    },
+    methods: {
+        contar(){
+            this.contador++;
+        }
+    },
+    //define el html del componente
+    template : '<button @click="contar()"> Contador {{contador}}</button>'
+})
+
 const app = new Vue(
     {
         //El me dice con que id del html se conecta
@@ -15,7 +30,8 @@ const app = new Vue(
                 {nombre:'Mariano', apellido:'Perez', curso:true, edad: 21, foto:'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/7_avatar-512.png'},
                 {nombre:'Matias', apellido:'Martinez', curso:false, edad: 29, foto:'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/1_avatar-512.png'},
                 {nombre:'Sofia', apellido:'Lopez', curso:true, edad: 21, foto:'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/4_avatar-512.png'},
-            ]
+            ],
+            valor: 123
         },
         methods: {
             //Diferentes formas de llamar metodos
@@ -29,6 +45,17 @@ const app = new Vue(
             },
 
             cambiarVistaTexto2() {
+            }
+        },
+        //propeidades computadas --> es una funcion que se ve como propiedad en la vista
+        computed: {
+            contarUsuariosAsistentesAlCurso(){
+                let contador = 0;
+                //espera a que una propiedad del usuario se modifique para entrrar al foreach
+                this.usuarios.forEach (usuario => {
+                    if (usuario.curso) contador ++
+                })
+                return contador;
             }
         }
     }

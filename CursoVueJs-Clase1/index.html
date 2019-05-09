@@ -58,6 +58,11 @@ https://docs.emmet.io/cheat-sheet/
                                 <th><img v-bind:src="usuario.foto" alt="alt" height="50"></th>
                             </tr>
                         </table>
+
+                        <div class="alert alert-info">
+                            {{contarUsuariosAsistentesAlCurso? contarUsuariosAsistentesAlCurso + " personas asistieron al curso": "Ninguna persona asistio al curso"}}  
+                        </div>
+
                     </div>
 
                     <!-- contendor media de boostrap -->
@@ -82,6 +87,19 @@ https://docs.emmet.io/cheat-sheet/
                 <button class="btn btn-success" v-on:click="mostrar=!mostrar"> {{ mostrar? 'Ocultar':'Mostrar'}} </button>
                 <!-- @click es igual que v-on:click-->
                 <button class="btn btn-success" @click="cambiarVistaTexto1"> {{ mostrar? 'Ocultar @ (metodo)':'Mostrar @ (metodo)'}} </button>
+
+
+                <h4>v-model</h4>
+                <!-- : es la forma reducida para bindear v: -->
+                <input type="text" :value="valor">
+                <!-- por defecto el binding es solo de ida, habria que activarlo para que sea bidireccional -->
+                <input type="text" v-model="valor">
+                <p>{{valor}}</p>
+
+                <h4>COMPONENTES </h4>
+                <contador></contador>
+
+
             </div>
         </div>
     </div>
