@@ -97,9 +97,24 @@ https://docs.emmet.io/cheat-sheet/
                 <p>{{valor}}</p>
 
                 <h4>COMPONENTES </h4>
-                <contador></contador>
+                <contador inicial = "123"></contador>
+                <contador inicial = "5"></contador>
+                <contador inicial = "100"></contador>
+                <contador inicial = "0"></contador>
 
+                <!-- Bindeo de clases  -->
+                <h4>:class </h4>
+                <p :class="[estiloFondo, 'text-white']">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore itaque modi id voluptas adipisci quis incidunt in deleniti suscipit fugiat, eum eligendi nobis dolorem nulla obcaecati et necessitatibus provident accusamus?
+                </p>
+                <button :class="['btn','btn-success']" @click="estado1=!estado1">Cambiar fondo</button>
+                <button :class="['btn','btn-success']" @click="estado2=!estado2">Cambiar fondo</button>
+                {{estado1}} : {{estado2}}
 
+                <p :class="[ (estado1 &&  estado2)? 'bg-success' : 'bg-danger', 'text-white']">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore itaque modi id voluptas adipisci quis incidunt in deleniti suscipit fugiat, eum eligendi nobis dolorem nulla obcaecati et necessitatibus provident accusamus?
+                    </p>
+                
             </div>
         </div>
     </div>

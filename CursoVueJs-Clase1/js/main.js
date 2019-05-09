@@ -1,7 +1,8 @@
 Vue.component('contador', {
     data(){
         return {
-            contador : 0
+            //toma del prop la variable
+            contador : this.inicial
         }
     },
     methods: {
@@ -9,8 +10,14 @@ Vue.component('contador', {
             this.contador++;
         }
     },
+    //props capturan los "parametros"
+    props : ['inicial'],
     //define el html del componente
-    template : '<button @click="contar()"> Contador {{contador}}</button>'
+    //Funciona con template string para poder usar mas lineas
+    template : `
+    <button @click="contar()" class="btn btn-success mx3"> Contador {{contador}}</button>
+    `
+    
 })
 
 const app = new Vue(
@@ -31,7 +38,10 @@ const app = new Vue(
                 {nombre:'Matias', apellido:'Martinez', curso:false, edad: 29, foto:'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/1_avatar-512.png'},
                 {nombre:'Sofia', apellido:'Lopez', curso:true, edad: 21, foto:'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/4_avatar-512.png'},
             ],
-            valor: 123
+            valor: 123,
+            estiloFondo: 'bg-danger',
+            estado1: false,
+            estado2: false
         },
         methods: {
             //Diferentes formas de llamar metodos
